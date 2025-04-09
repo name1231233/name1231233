@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список дел</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Список дел</h1>
+        <button id="addTaskBtn">Добавить задачу</button>
+        <div class="filter-sort">
+            <label>Фильтр по статусу:</label>
+            <select id="filterStatus">
+                <option value="all">Все</option>
+                <option value="pending">В процессе</option>
+                <option value="completed">Завершено</option>
+            </select>
+            <label>Сортировка:</label>
+            <select id="sortTasks">
+                <option value="createdAt">По дате создания</option>
+                <option value="title">По алфавиту</option>
+            </select>
+        </div>
+        <div id="taskList"></div>
+    </div>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Добавить задачу</h2>
+            <form id="taskForm">
+                <label>Название:</label>
+                <input type="text" id="taskTitle" required>
+                <label>Описание:</label>
+                <textarea id="taskDescription"></textarea>
+                <label>Дедлайн:</label>
+                <input type="date" id="taskDeadline" required>
+                <label>Теги (через запятую):</label>
+                <input type="text" id="taskTags">
+                <label>Статус:</label>
+                <select id="taskStatus">
+                    <option value="pending">В процессе</option>
+                    <option value="completed">Завершено</option>
+                </select>
+                <button type="submit">Сохранить</button>
+                <button type="button" id="cancelBtn">Отмена</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="notificationModal" class="modal">
+        <div class="modal-content notification">
+            <p id="notificationMessage"></p>
+            <button id="closeNotification">ОК</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
